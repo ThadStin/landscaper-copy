@@ -13,8 +13,8 @@ const start = () => {
 //     otherwise, this would go around next lines
 const startGame = document.getElementById('startGame');
 startGame.onclick = () => start();
-const message = document.getElementById('textbox');
-// message.innerHTML += 
+// const message = document.getElementById('textbox');
+// message.innerHTML +=
 // const win = () => {
 //   if (money >= 1000 && tool === 'starving students') {
 //     alert('YOU ARE THE GRASS KING!')
@@ -22,14 +22,23 @@ const message = document.getElementById('textbox');
 // }
 
 const status = () => {
-  alert('You have $' + money + ' and are mowing with ' + tool);
+  document.getElementById('textbox').innerHTML += 'You have $' + money + ' and are mowing with ' + tool;
+  // alert('You have $' + money + ' and are mowing with ' + tool);
 }
-
+/////////////This is all new/////////////
+// const cutGrass = () => {
+  document.getElementById('cut').addEventListener("click", function(){
+    checkTool();
+  });
+  // cutGrass.onclick= ()=> checkTool(), status();
+// }
+//////////////////////////////////////////////
 
 const askForAction = () => {
   status();
   // win();
-  const choice = prompt('What do you want to do?', 'restart / cut lawn / buy equipment')
+  const choice = () =>{
+  // prompt('What do you want to do?', 'restart / cut lawn / buy equipment')
     if (choice === 'cut lawn') {
       checkTool()
     } else if (choice === 'buy equipment') {
@@ -37,7 +46,7 @@ const askForAction = () => {
     } else if (choice === 'restart') {
       start();
     }
-}
+}}
 
 const checkTool = () => {
   if (tool === 'teeth') {
@@ -92,9 +101,6 @@ const listOptions = () => {
         }
       }
 }
-
-console.log(listOptions);
-
 
 
 // start();
